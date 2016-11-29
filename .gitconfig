@@ -18,9 +18,6 @@
 	# Clone a repository including all submodules
 	c = clone --recursive
 
-	# Commit all changes
-	ca = !git add -A && git commit -av
-
 	# Switch to a branch, creating it if necessary
 	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 
@@ -31,9 +28,6 @@
 
 	# Amend the currently staged files to the latest commit
 	amend = commit --amend --reuse-message=HEAD
-
-	# Credit an author on the latest commit
-	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 
 	# Interactive rebase with the given number of latest commits
 	reb = "!r() { git rebase -i HEAD~$1; }; r"
@@ -52,6 +46,9 @@
 
 	# Find commits by commit message
 	fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+
+	# Update
+	up = "!git pull && git dm && git s"
 
 	# Remove branches that have already been merged with master
 	# a.k.a. ‘delete merged’
@@ -128,7 +125,7 @@
 [commit]
 
 	# https://help.github.com/articles/signing-commits-using-gpg/
-	gpgsign = true
+	#gpgsign = true
 
 [diff]
 
@@ -152,10 +149,7 @@
 
 [push]
 
-	# Use the Git 1.x.x default to avoid errors on machines with old Git
-	# installations. To use `simple` instead, add this to your `~/.extra` file:
-	# `git config --global push.default simple`. See http://git.io/mMah-w.
-	default = matching
+	default = current
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
 
