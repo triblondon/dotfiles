@@ -60,6 +60,9 @@
 	# List contributors with number of commits
 	contributors = shortlog --summary --numbered
 
+	# Update
+	up = "!git pull && git dm && git s"
+
 	# Merge GitHub pull request on top of the current branch or,
 	# if a branch name is specified, on top of the specified branch
 	mpr = "!f() { \
@@ -128,7 +131,7 @@
 [commit]
 
 	# https://help.github.com/articles/signing-commits-using-gpg/
-	gpgsign = true
+	#gpgsign = true
 
 [diff]
 
@@ -159,6 +162,7 @@
 	# installations. To use `simple` instead, add this to your `~/.extra` file:
 	# `git config --global push.default simple`. See http://git.io/mMah-w.
 	default = matching
+
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
 

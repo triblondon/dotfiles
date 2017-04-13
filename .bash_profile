@@ -1,5 +1,14 @@
+# Make personal key available for SSH logins
+ssh-add -l | grep -c id_dsa >/dev/null || ssh-add ~/.ssh/id_dsa
+
+# Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
+
+# Add the node globals dir
+export PATH="$HOME/npm-global/bin:$PATH";
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
