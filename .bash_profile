@@ -7,6 +7,15 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
 
+# Use Homebrew version for CLI curl (because it has HTTP2 support)
+export PATH="/usr/local/opt/curl/bin:$PATH";
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/andrewbetts/google-cloud-sdk/path.bash.inc' ]; then source '/Users/andrewbetts/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/andrewbetts/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/andrewbetts/google-cloud-sdk/completion.bash.inc'; fi
+
 # Add the node globals dir
 export PATH="$HOME/npm-global/bin:$PATH";
 
